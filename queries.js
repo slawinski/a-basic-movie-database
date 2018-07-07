@@ -1,13 +1,14 @@
-var promise = require('bluebird');
+const promise = require('bluebird');
+const fetch = require('node-fetch');
 
-var options = {
+const options = {
   // Initialization Options
   promiseLib: promise
 };
 
-var pgp = require('pg-promise')(options);
-var connectionString = 'postgres://postgres:password@localhost:5432/movies_db';
-var db = pgp(connectionString);
+const pgp = require('pg-promise')(options);
+const connectionString = 'postgres://postgres:password@localhost:5432/movies_db';
+const db = pgp(connectionString);
 
 // add query functions
 
@@ -22,12 +23,9 @@ module.exports = {
 function getAllMovies(req, res, next) {
   db.any('select * from movies')
       .then(function (data) {
-        res.status(200)
-            .json({
-              status: 'success',
-              data: data,
-              message: 'Retrieved ALL movies'
-            });
+        res.render('index', {
+          data: data,
+        });
       })
       .catch(function (err) {
         return next(err);
@@ -35,7 +33,7 @@ function getAllMovies(req, res, next) {
 }
 
 function getSingleMovie(req, res, next) {
-  var movieID = parseInt(req.params.id);
+  const movieID = parseInt(req.params.id);
   db.one('select * from movies where id = $1', movieID)
       .then(function (data) {
         res.status(200)
@@ -51,16 +49,21 @@ function getSingleMovie(req, res, next) {
 }
 
 function createMovie(req, res, next) {
-  req.body.year = parseInt(req.body.year);
-  db.none('insert into movies(title, year, director, country)' +
-      'values(${title}, ${year}, ${director}, ${country})',
-      req.body)
+  let url = ('http://www.omdbapi.com/?apikey=869369bc&t=' + req.body.title);
+  console.log('>>>>> Hi, I\'m fetching data from', url);
+  fetch(url, {
+    method: 'GET',
+  })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+        console.log('>>>>> Got it! Inserting into the database...');
+        db.none('insert into movies(title, genre, year, director, country, actors)' +
+            'values($1, $2, $3, $4, $5, $6)', [myJson.Title, myJson.Genre, myJson.Year, myJson.Director, myJson.Country, myJson.Actors]);
+      })
       .then(function () {
-        res.status(200)
-            .json({
-              status: 'success',
-              message: 'Inserted one movie'
-            });
+        res.redirect('/');
       })
       .catch(function (err) {
         return next(err);
@@ -68,7 +71,7 @@ function createMovie(req, res, next) {
 }
 
 function updateMovie(req, res, next) {
-  db.none('update movies set title=$1, year=$2, director=$3, country=$4 where id=$5',
+  db.none('update movies set title=$1, genre=$2 year=$3, director=$4, country=$5, boxoffice=&6 where id=$7',
       [req.body.title, parseInt(req.body.year), req.body.director,
         req.body.country, parseInt(req.params.id)])
       .then(function () {
@@ -84,7 +87,7 @@ function updateMovie(req, res, next) {
 }
 
 function removeMovie(req, res, next) {
-  var movieID = parseInt(req.params.id);
+  const movieID = parseInt(req.params.id);
   db.result('delete from movies where id = $1', movieID)
       .then(function (result) {
         /* jshint ignore:start */

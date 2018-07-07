@@ -4,18 +4,12 @@
     <h3 class="text-muted">Basic movie database interacting with external API</h3>
   </div>
   <div>
-    <form action="">
+    <form style="display: inline" id="addMovie" method="post" action="/movies">
       <label for="">Add a movie</label>
-      <input type="text">
-      <button type="submit" class="btn btn-primary btn-default">Add</button>
+      <input id="title" name="title" type="text" placeholder="i.e. Gladiator" required>
+      <button type="submit" form="addMovie" class="btn btn-primary btn-default">Add</button>
     </form>
-  </div>
-  <br/>
-  <div>
-    <form action="">
-      <label for="">Find a movie</label>
-      <input type="text">
-      <button type="submit" class="btn btn-primary btn-default">Find</button>
+    <form style="display: inline" id="getMovie" method="get" action="/movies">
       <button type="submit" class="btn btn-primary btn-default">Find All</button>
     </form>
   </div>

@@ -1,0 +1,28 @@
+{{#if data}}
+  <table class="table table-sm table-bordered table-hover">
+    <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Genre</th>
+    <th>Year</th>
+    <th>Country</th>
+    <th>Director</th>
+    <th>Actors</th>
+    </thead>
+    <tbody>
+    {{#each data}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{title}}</td>
+        <td>{{genre}}</td>
+        <td>{{year}}</td>
+        <td>{{country}}</td>
+        <td>{{director}}</td>
+        <td>{{actors}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <div class="alert alert-danger">There should be a table here</div>
+{{/if}}

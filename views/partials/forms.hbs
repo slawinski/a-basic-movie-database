@@ -3,14 +3,25 @@
     <h1>Simple REST API</h1>
     <h3 class="text-muted">Basic movie database interacting with external API</h3>
   </div>
-  <div>
-    <form style="display: inline" id="addMovie" method="post" action="/movies">
-      <label for="">Add a movie</label>
+  <div class="wrapper">
+    <form id="addMovie" method="post" action="/movies">
+      <label for="title">Add a movie: </label>
       <input id="title" name="title" type="text" placeholder="i.e. Gladiator" required>
-      <button type="submit" form="addMovie" class="btn btn-primary btn-default">Add</button>
+      <button type="submit" form="addMovie" class="left btn btn-primary btn-default">Add Movie</button>
     </form>
-    <form style="display: inline" id="getMovie" method="get" action="/movies">
-      <button type="submit" class="btn btn-primary btn-default">Find All</button>
+    <form id="getMovie" method="get" action="/movies">
+      <button type="submit" form="getMovie" class="right btn btn-primary btn-default">Find All</button>
+    </form>
+
+    <form id="addComment" method="post" action="/comments">
+      <label for="comment">Add a comment: </label>
+      <textarea id="comment" name="comment" form="addComment" placeholder="i.e. It was nice" rows="1" required></textarea>
+      <label for="movie_id">to a movie: </label>
+      <input id="movie_id" name="movie_id" type="text" placeholder="i.e. 3" required>
+      <button type="submit" form="addComment" class="left btn btn-primary btn-default">Add Comment</button>
+    </form>
+    <form id="getComment" method="get" action="/comments">
+      <button type="submit" form="getComment" class="right btn btn-primary btn-default">Find All</button>
     </form>
   </div>
 </section>

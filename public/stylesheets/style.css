@@ -1,8 +1,42 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+}
+
+#addMovie, #addComment {
+    grid-column: 1/2;
+}
+
+#getMovie, #getComment {
+    grid-column: 2/3;
+
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+label {
+    grid-column: 1/2;
+}
+
+input {
+    grid-column: 2/3;
+}
+
+.left {
+    grid-column: 3/4;
+}
+

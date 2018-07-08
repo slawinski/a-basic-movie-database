@@ -13,5 +13,13 @@ CREATE TABLE movies (
   Actors VARCHAR
 );
 
+CREATE TABLE comments (
+  ID SERIAL PRIMARY KEY,
+  movie_id INTEGER,
+  comment VARCHAR,
+  published_date timestamp DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (movie_id) REFERENCES movies(ID) ON DELETE CASCADE
+);
+
 --INSERT INTO movies (Title, Year, Director, Country)
 --  VALUES ('Ja-nusz w wodzie', 2018, 'Andrzej Pajda', 'Bolzga');

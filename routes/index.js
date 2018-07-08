@@ -5,10 +5,9 @@ const db = require('../queries');
 
 
 router.get('/movies', db.getAllMovies);
-router.get('/movies/:id', db.getSingleMovie);
 router.post('/movies', db.createMovie);
-router.put('/movies/:id', db.updateMovie);
-router.delete('/movies/:id', db.removeMovie);
+router.get('/comments', db.getAllComments);
+router.post('/comments', db.createComment);
 
 
 module.exports = router;

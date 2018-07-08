@@ -1,6 +1,9 @@
 {{#if data}}
   <table class="table table-sm table-bordered table-hover">
     <thead>
+    <!--{{#each data}}-->
+      <!--{{@key}}-->
+    <!--{{/each}}-->
     <th>ID</th>
     <th>Title</th>
     <th>Genre</th>
@@ -12,6 +15,7 @@
     <tbody>
     {{#each data}}
       <tr>
+        <!--<td>{{this}}</td>-->
         <td>{{id}}</td>
         <td>{{title}}</td>
         <td>{{genre}}</td>

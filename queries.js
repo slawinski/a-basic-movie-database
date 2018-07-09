@@ -7,7 +7,7 @@ const options = {
 };
 
 const pgp = require('pg-promise')(options);
-const connectionString = 'postgres://ccymoxvufmicpo:701ae9fa7a8a08aeaf82ae0556e25be01343bec80bf61acdf139979c844cc68b@ec2-54-227-243-210.compute-1.amazonaws.com:5432/movies_db';
+const connectionString = 'postgres://ccymoxvufmicpo:701ae9fa7a8a08aeaf82ae0556e25be01343bec80bf61acdf139979c844cc68b@ec2-54-227-243-210.compute-1.amazonaws.com:5432/d9bsd10dnsd0aj';
 const db = pgp(connectionString);
 
 // add query functions

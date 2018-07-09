@@ -3,6 +3,7 @@
     <h1>Simple REST API</h1>
     <h3 class="text-muted">Basic movie database interacting with external API</h3>
   </div>
+  <br>
   <div class="wrapper">
     <form id="addMovie" method="post" action="/movies">
       <label for="title">Add a movie: </label>
@@ -12,7 +13,6 @@
     <form id="getMovie" method="get" action="/movies">
       <button type="submit" form="getMovie" class="right btn btn-primary btn-default">Find All Movies</button>
     </form>
-    <br>
     <form id="addComment" method="post" action="/comments">
       <label for="comment">Add a comment: </label>
       <textarea id="comment" name="comment" form="addComment" placeholder="i.e. It was nice" rows="1" required></textarea>

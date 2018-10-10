@@ -1,6 +1,12 @@
 # a-basic-movie-database
 
-Simple REST API - a basic movie database interacting with external API.
+TODO:\
+[] Dockerize\
+[] Webpack\
+[] Linter\
+[] Comments in modal
+
+A super duper simple movie database interacting with external API.
 
 ## Endpoint specification
 

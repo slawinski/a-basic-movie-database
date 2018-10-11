@@ -1,10 +1,12 @@
 # a-basic-movie-database
 
 TODO:\
-[] Dockerize\
-[] Webpack\
-[] Linter\
-[] Comments in modal
+[ &nbsp;] Dockerize\
+[ &nbsp;] Webpack\
+[ &nbsp;] Linter\
+[ &nbsp;] Comments\
+[ &nbsp;] Styling\
+[ &nbsp;] User login
 
 A super duper simple movie database interacting with external API.
 

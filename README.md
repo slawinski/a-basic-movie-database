@@ -1,14 +1,5 @@
 # a-basic-movie-database
 
-TODO:\
-[ &nbsp;] Docker\
-[ &nbsp;] Webpack\
-[ &nbsp;] Linter\
-[ &nbsp;] Tests\
-[ &nbsp;] Refactor Comments\
-[ &nbsp;] Styling\
-[ &nbsp;] User Login
-
 A super duper simple movie database interacting with external API.
 
 ## Endpoint specification
@@ -29,29 +20,11 @@ Should allow filtering comments by associated movie, by passing its ID.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
 You need to install Node.js.
-
-### Installing
-
-After cloning the repo install the dependencies
-
-```
-npm install
-```
-
-To run the app locally in your command line just type
-
-```
-npm start
-```
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+TBD
 
 ## Deployment
 
@@ -67,15 +40,22 @@ heroku pg:psql > <file_name>.sql
 heroku open
 ```
 
-## Built With
+## TODOs
+✅ README\
+❌ Docker\
+❌ Webpack\
+❌ Linter\
+❌ Tests\
+✅ Heroku\
+❌ Refactor Comments\
+❌ Styling\
+❌ User Login
 
-* [Node.js](https://nodejs.org/en/) - runtime environment
-* [Express](https://expressjs.com/) - web framework for Node.js
-* [Handlebars](https://handlebarsjs.com/) - templating engine
-* [PostgreSQL](https://www.postgresql.org/) - opensource database
-* [Heroku](https://dashboard.heroku.com/) - platform as a service
+## License
 
-## Authors
+TBD
 
-* **Piotr Slawinski** - [Slawinski](https://github.com/slawinski)
+## Acknowledgments
+
+TBD
 

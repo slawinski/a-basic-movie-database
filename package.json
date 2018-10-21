@@ -3,13 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "dev": "webpack --mode development ./src/index.js --output ./public/javascripts/main.js",
+    "build": "webpack --mode production ./src/index.js --output ./public/javascripts/main.js",
+    "watch": "webpack -w --mode development",
     "start": "nodemon ./bin/www"
   },
-  "engines": {
-    "node": "8.10.0",
-    "npm": "5.6.0"
-  },
-  "heroku-postbuild": "npm install --production",
   "dependencies": {
     "bluebird": "^3.5.1",
     "cookie-parser": "~1.4.3",
@@ -23,6 +21,12 @@
     "pg-promise": "^8.4.5"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.17.5",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.14.3"
   }
 }

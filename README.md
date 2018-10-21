@@ -25,10 +25,11 @@ heroku open
 ```
 
 ## TODOs
+
 ✅ README\
-❌ Docker\
-❌ Webpack\
-❌ Linter\
+✅ Docker\
+✅ Webpack\
+✅ Linter\
 ❌ Tests\
 ✅ Heroku\
 ❌ Refactor Comments\
@@ -42,4 +43,3 @@ TBD
 ## Acknowledgments
 
 TBD
-

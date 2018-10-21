@@ -34,7 +34,8 @@ heroku open
 ✅ Heroku\
 ❌ Refactor Comments\
 ❌ Styling\
-❌ User Login
+❌ User Login\
+❌ Implement ORM
 
 ## License
 

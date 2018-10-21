@@ -27,7 +27,7 @@ TBD
 ❌ Refactor Comments\
 ❌ Styling\
 ❌ User Login\
-❌ Implement ORM
+❌ Implement ORM/query builder
 
 ## License
 

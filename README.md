@@ -12,6 +12,12 @@ Then run:
 docker-compose up --build
 ```
 
+For the bash shell run:
+
+```bash
+docker-compose run web /bin/bash
+```
+
 ## Running the tests
 
 TBD

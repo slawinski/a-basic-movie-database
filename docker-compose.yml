@@ -9,3 +9,28 @@ services:
     ports:
       - "3000:3000"
     command: npm start
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: movie_db
+      DATABASE_URL: postgres://postgres:password@localhost:5432/movies_db
+
+  postgres:
+    image: postgres:10.3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: movie_db # TODO: use  env vars
+
+  # webpack:
+  #   # container_name: webpack
+  #   build: .
+  #   depends_on:
+  #     - web
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   working_dir: /app
+  #   command: webpack --watch

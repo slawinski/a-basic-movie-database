@@ -1,4 +1,4 @@
-exports.up = function(knex, Promise) {
+exports.up = (knex, Promise) => {
   const createQuery = `CREATE TABLE movies (
     ID SERIAL PRIMARY KEY,
     Title VARCHAR,
@@ -11,7 +11,7 @@ exports.up = function(knex, Promise) {
   return knex.raw(createQuery);
 };
 
-exports.down = function(knex, Promise) {
+exports.down = (knex, Promise) => {
   const dropQuery = `DROP TABLE movies`;
   return knex.raw(dropQuery);
 };

@@ -3,17 +3,6 @@
 module.exports = {
   development: {
     client: "postgres",
-    connection: {
-      database: "movie_db",
-      user: "postgres",
-      password: "password"
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: "knex_migrations"
-    }
+    connection: "postgres://postgres:password@db:5432/movies_db" //for migration has to be localhost, for routes db
   }
 };

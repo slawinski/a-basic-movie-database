@@ -2,8 +2,7 @@ FROM node:10
 
 WORKDIR /app
 
-COPY ./package.json /app/package.json
-COPY ./package-lock.json /app/package-lock.json
+COPY ./package.json ./package-lock.json ./app/
 
 RUN npm install
 

@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require("../db/knex");
 
 router.get("/movies", (req, res, next) => {
-  knex("movie")
+  knex("movies")
     .select()
     .then(movies => {
       res.render("movies", movies);

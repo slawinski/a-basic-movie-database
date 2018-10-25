@@ -20,13 +20,8 @@ services:
       - "5432:5432"
     expose:
       - "5432"
-  # webpack:
-  #   # container_name: webpack
-  #   build: .
-  #   depends_on:
-  #     - web
-  #   volumes:
-  #     - .:/app
-  #     - /app/node_modules
-  #   working_dir: /app
-  #   command: webpack --watch
+    volumes:
+      - ./data:/var/lib/postgresql/data
+
+volumes:
+  data: {}

@@ -7,8 +7,8 @@ const knex = require("../db/knex");
 router.get("/movies", (req, res, next) => {
   knex("movies")
     .select()
-    .then(movies => {
-      res.render("movies", movies);
+    .then(data => {
+      res.render("movies", data);
     });
 });
 // router.post("/movies", db.createMovie);

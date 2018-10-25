@@ -18,6 +18,10 @@ For the bash shell run:
 docker-compose run web /bin/bash
 ```
 
+```bash
+docker exec -it $(docker-compose ps -q postgres9 ) psql -U postgres
+```
+
 ## Running the tests
 
 TBD

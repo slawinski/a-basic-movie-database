@@ -1,12 +1,20 @@
-// Update with your config settings.
-
 module.exports = {
   development: {
     client: "postgres",
-    connection: "postgres://postgres:password@db/movies_db"
+    connection: {
+      host: "db",
+      user: "postgres",
+      password: "password",
+      database: "movies_db"
+    }
   },
   production: {
     client: "postgres",
-    connection: process.env.DATABASE_URL
+    connection: {
+      host: "localhost",
+      user: "postgres",
+      password: "password",
+      database: "movies_db"
+    }
   }
 };

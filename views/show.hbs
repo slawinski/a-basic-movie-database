@@ -1,0 +1,19 @@
+<div>
+  <a href="/movies">
+    <button class="btn btn-outline-secondary">Back</button>
+  </a>
+</div>
+<div class="flex-container">
+  <div>
+    <img src="{{Poster}}" alt="Movie poster">{{!-- TODO make this poster load --}}
+  </div>
+  <div>
+    <ul>
+      {{#if movie}} {{#each movie}} {{#each this}}
+      <li>{{@key}}: {{this}}</li>
+      {{/each}} {{/each}} {{else}}
+      <div class="alert alert-danger">There should be something here</div>
+      {{/if}}
+    </ul>
+  </div>
+</div>

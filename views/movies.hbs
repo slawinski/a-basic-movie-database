@@ -1,17 +1,26 @@
-<div>
-  <a href="/">
-    <button class="btn btn-outline-secondary">Back</button>
-  </a>
-</div>
-{{#if movies}} {{#each movies}}
-<a href="/movies/{{id}}">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">{{Title}} ({{Year}})</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{Genre}}</h6>
-    </div>
+<div class="container">
+  <div class="flex-container">
+    <form id="addMovie" method="post" action="/movies">
+      <label for="title">Add a movie: </label>
+      <input id="title" name="title" type="text" placeholder="i.e. Gladiator" required>
+      <button type="submit" form="addMovie" class="left btn btn-outline-primary btn-default">Add Movie</button>
+    </form>
+    <a href="/movies">
+      <button class="btn btn-outline-primary btn-default">Find All Movies</button>
+    </a>
   </div>
-</a>
-{{/each}} {{else}}
-<div class="alert alert-danger">There should be something here</div>
-{{/if}}
+  <div>
+    {{#if movies}} {{#each movies}}
+    <a href="/movies/{{id}}">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{Title}} ({{Year}})</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{Genre}}</h6>
+        </div>
+      </div>
+    </a>
+    {{/each}} {{else}}
+    <div class="alert alert-danger">There should be something here</div>
+    {{/if}}
+  </div>
+</div>

@@ -1,19 +1,46 @@
-<div>
-  <a href="/movies">
-    <button class="btn btn-outline-secondary">Back</button>
-  </a>
-</div>
-<div class="flex-container">
-  <div>
-    <img src="{{Poster}}" alt="Movie poster">{{!-- TODO make this poster load --}}
+<div class="container">
+  <div class="flex-container">
+    <a href="/movies">
+      <button class="btn btn-outline-secondary">Back</button>
+    </a>
+    <form action="/movies/{{movie.[0].id}}?_method=DELETE" method="post">
+      <button type="submit" class="btn btn-default btn-danger">
+        Delete
+      </button>
+    </form>
   </div>
-  <div>
-    <ul>
-      {{#if movie}} {{#each movie}} {{#each this}}
-      <li>{{@key}}: {{this}}</li>
-      {{/each}} {{/each}} {{else}}
-      <div class="alert alert-danger">There should be something here</div>
-      {{/if}}
-    </ul>
+  <div class="flex-container">
+    <div class="poster">
+      <img src="{{movie.[0].Poster}}" alt="Movie poster">
+    </div>
+    <div class="movie-info">
+      <ul>
+        {{#if movie}} {{#each movie}} {{#each this}}
+        <li>{{@key}}: {{this}}</li>
+        {{/each}} {{/each}} {{else}}
+        <div class="alert alert-danger">There should be something here</div>
+        {{/if}}
+      </ul>
+    </div>
+    <div class="comment-section">
+      <div>
+        <form id="addComment" action="/movies/{{movie.[0].id}}" method="post">
+          <label for="comment">Add a comment: </label>
+          <input id="comment" name="comment" type="text" placeholder="i.e. I liked it" required>
+          <button type="submit" form="addComment" class="left btn btn-outline-primary btn-default">Add Comment</button>
+        </form>
+      </div>
+      <div>
+        {{#if comments}} {{#each comments}}
+        <div class="card">
+          <div class="card-body">
+            <p>{{comment}}</p>
+          </div>
+        </div>
+        {{/each}} {{else}}
+        <div class="alert alert-danger">There should be something here</div>
+        {{/if}}
+      </div>
+    </div>
   </div>
 </div>

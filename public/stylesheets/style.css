@@ -7,3 +7,12 @@ body {
   display: flex;
   align-items: center;
 }
+.poster {
+  align-self: flex-start;
+}
+.comment-section {
+  align-self: flex-start;
+}
+.movie-info {
+  width: 40%;
+}

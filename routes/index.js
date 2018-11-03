@@ -5,9 +5,9 @@ const router = express.Router();
 
 const knex = require("../db/knex");
 
-router.get("/", (req, res, next) => {
-  res.render("index");
-});
+// router.get("/", (req, res, next) => {
+//   res.render("index");
+// });
 
 router.get("/movies", (req, res, next) => {
   knex("movies")
@@ -23,7 +23,12 @@ router.get("/movies/:id", (req, res, next) => {
     .select()
     .where("id", id)
     .then(movie => {
-      res.render("show", { movie });
+      knex("comments")
+        .select()
+        .where("movie_id", id)
+        .then(comments => {
+          res.render("show", { movie, comments });
+        });
     });
 });
 
@@ -68,6 +73,28 @@ router.post("/movies", (req, res, next) => {
         });
     })
     .catch(err => next(err));
+});
+
+router.delete("/movies/:id", (req, res, next) => {
+  const { id } = req.params;
+  knex("movies")
+    .where("id", id)
+    .del()
+    .then(() => {
+      res.redirect("/movies");
+    });
+});
+
+router.post("/movies/:id/", (req, res, next) => {
+  const comments = {
+    movie_id: req.params.id,
+    comment: req.body.comment
+  };
+  knex("comments")
+    .insert(comments)
+    .then(() => {
+      res.redirect(`/movies/${req.params.id}`);
+    });
 });
 
 module.exports = router;

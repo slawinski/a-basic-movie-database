@@ -5,17 +5,14 @@
       <input id="title" name="title" type="text" placeholder="i.e. Gladiator" required>
       <button type="submit" form="addMovie" class="left btn btn-outline-primary btn-default">Add Movie</button>
     </form>
-    <a href="/movies">
-      <button class="btn btn-outline-primary btn-default">Find All Movies</button>
-    </a>
   </div>
-  <div>
+  <div class="grid mt-3">
     {{#if movies}} {{#each movies}}
     <a href="/movies/{{id}}">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 16rem;">
+        <img class="card-img-top" src="{{Poster}}" alt="Movie poster">
         <div class="card-body">
           <h5 class="card-title">{{Title}} ({{Year}})</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{Genre}}</h6>
         </div>
       </div>
     </a>

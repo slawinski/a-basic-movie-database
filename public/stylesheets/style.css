@@ -16,3 +16,10 @@ body {
 .movie-info {
   width: 40%;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(max-content, 150px));
+  margin: 0 auto;
+  justify-content: center;
+  grid-gap: 10px;
+}

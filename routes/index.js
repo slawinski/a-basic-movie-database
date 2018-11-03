@@ -12,6 +12,7 @@ const knex = require("../db/knex");
 router.get("/movies", (req, res, next) => {
   knex("movies")
     .select()
+    .orderBy("id", "desc")
     .then(movies => {
       res.render("movies", { movies });
     });

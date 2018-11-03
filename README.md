@@ -34,10 +34,10 @@ TBD
 ✅ Linter\
 ❌ Tests\
 ✅ Heroku\
-❌ Refactor Comments\
+✅ Refactor Comments\
 ❌ Styling\
 ❌ User Login\
-❌ Implement ORM/query builder
+✅ Implement ORM/query builder
 
 ## License
 

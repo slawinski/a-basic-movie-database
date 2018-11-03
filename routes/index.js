@@ -5,7 +5,7 @@ const router = express.Router();
 
 const knex = require("../db/knex");
 
-router.get("/movies", (req, res, next) => {
+router.get("/", (req, res, next) => {
   knex("movies")
     .select()
     .orderBy("created_at", "desc")
@@ -14,7 +14,7 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
-router.get("/movies/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   const { id } = req.params;
   knex("movies")
     .select()
@@ -34,7 +34,7 @@ router.get("/movies/:id", (req, res, next) => {
     });
 });
 
-router.post("/movies", (req, res, next) => {
+router.post("/", (req, res, next) => {
   const url = `http://www.omdbapi.com/?apikey=869369bc&t=${req.body.title}`;
   fetch(url, {
     method: "GET"
@@ -71,13 +71,13 @@ router.post("/movies", (req, res, next) => {
       knex("movies")
         .insert(movie)
         .then(() => {
-          res.redirect("/movies");
+          res.redirect("/");
         });
     })
     .catch(err => next(err));
 });
 
-router.delete("/movies/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   const { id } = req.params;
   knex("comments")
     .where("movie_id", id)
@@ -87,12 +87,12 @@ router.delete("/movies/:id", (req, res, next) => {
         .where("id", id)
         .del()
         .then(() => {
-          res.redirect("/movies");
+          res.redirect("/");
         });
     });
 });
 
-router.post("/movies/:id/", (req, res, next) => {
+router.post("/:id", (req, res, next) => {
   const comments = {
     movie_id: req.params.id,
     comment: req.body.comment
@@ -100,7 +100,7 @@ router.post("/movies/:id/", (req, res, next) => {
   knex("comments")
     .insert(comments)
     .then(() => {
-      res.redirect(`/movies/${req.params.id}`);
+      res.redirect(`/${req.params.id}`);
     });
 });
 

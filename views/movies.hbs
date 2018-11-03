@@ -9,15 +9,15 @@
   <div class="grid mt-3">
     {{#if movies}} {{#each movies}}
     <a href="/movies/{{id}}">
-      <div class="card" style="width: 16rem;">
-        <img class="card-img-top" src="{{Poster}}" alt="Movie poster">
+      <div class="card" style="width: 11rem;">
+        <img class="card-img-top" src="{{poster}}" alt="Movie poster">
         <div class="card-body">
-          <h5 class="card-title">{{Title}} ({{Year}})</h5>
+          <p class="card-title">{{title}} ({{year}})</p>
         </div>
       </div>
     </a>
     {{/each}} {{else}}
-    <div class="alert alert-danger">There should be something here</div>
+    <div class="alert alert-warning">You don't have any movies in your database</div>
     {{/if}}
   </div>
 </div>

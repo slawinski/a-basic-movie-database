@@ -15,11 +15,12 @@ body {
 }
 .movie-info {
   width: 40%;
+  align-self: flex-start;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(max-content, 150px));
+  grid-template-columns: repeat(6, minmax(max-content, 150px));
   margin: 0 auto;
-  justify-content: center;
+  justify-content: left;
   grid-gap: 10px;
 }

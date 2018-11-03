@@ -2,7 +2,7 @@ exports.up = (knex, Promise) =>
   knex.schema.createTable("movies", table => {
     table.increments();
     table.text("Title").notNullable();
-    table.integer("Year");
+    table.text("Year");
     table.text("Rated");
     table.text("Released");
     table.text("Runtime");

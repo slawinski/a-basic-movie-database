@@ -35,7 +35,6 @@ TBD
 ❌ Tests\
 ✅ Heroku\
 ✅ Refactor Comments\
-❌ Styling\
 ❌ User Login\
 ✅ Implement ORM/query builder
 

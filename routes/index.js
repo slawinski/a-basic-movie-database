@@ -41,38 +41,43 @@ router.post("/", (req, res, next) => {
   })
     .then(response => response.json())
     .then(myJson => {
-      const movie = {
-        // TODO load myJson including Ratings object
-        title: myJson.Title,
-        year: myJson.Year,
-        rated: myJson.Rated,
-        released: myJson.Released,
-        runtime: myJson.Runtime,
-        genre: myJson.Genre,
-        director: myJson.Director,
-        writer: myJson.Writer,
-        actors: myJson.Actors,
-        plot: myJson.Plot,
-        language: myJson.Language,
-        country: myJson.Country,
-        awards: myJson.Awards,
-        poster: myJson.Poster,
-        metascore: myJson.Metascore,
-        imdbRating: myJson.imdbRating,
-        imdbVotes: myJson.imdbVotes,
-        imdbID: myJson.imdbID,
-        type: myJson.Type,
-        DVD: myJson.DVD,
-        boxOffice: myJson.BoxOffice,
-        production: myJson.Production,
-        website: myJson.Website,
-        response: myJson.Response
-      };
-      knex("movies")
-        .insert(movie)
-        .then(() => {
-          res.redirect("/");
-        });
+      if (typeof myJson.Title === "string" && myJson.Title.trim() !== "") {
+        const movie = {
+          // TODO load myJson including Ratings object
+          title: myJson.Title,
+          year: myJson.Year,
+          rated: myJson.Rated,
+          released: myJson.Released,
+          runtime: myJson.Runtime,
+          genre: myJson.Genre,
+          director: myJson.Director,
+          writer: myJson.Writer,
+          actors: myJson.Actors,
+          plot: myJson.Plot,
+          language: myJson.Language,
+          country: myJson.Country,
+          awards: myJson.Awards,
+          poster: myJson.Poster,
+          metascore: myJson.Metascore,
+          imdbRating: myJson.imdbRating,
+          imdbVotes: myJson.imdbVotes,
+          imdbID: myJson.imdbID,
+          type: myJson.Type,
+          DVD: myJson.DVD,
+          boxOffice: myJson.BoxOffice,
+          production: myJson.Production,
+          website: myJson.Website,
+          response: myJson.Response
+        };
+        knex("movies")
+          .insert(movie)
+          .then(() => {
+            res.redirect("/");
+          });
+      } else {
+        res.status(500);
+        res.render("error", { message: "Title not found" });
+      }
     })
     .catch(err => next(err));
 });

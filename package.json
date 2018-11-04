@@ -6,7 +6,8 @@
     "dev": "webpack --mode development ./src/index.js --output ./public/javascripts/main.js",
     "build": "webpack --mode production ./src/index.js --output ./public/javascripts/main.js",
     "watch": "webpack -w --mode development",
-    "start": "nodemon ./bin/www"
+    "start": "NODE_ENV=production nodemon ./bin/www",
+    "postinstall": "knex migrate:latest && npm install"
   },
   "dependencies": {
     "bluebird": "^3.5.1",

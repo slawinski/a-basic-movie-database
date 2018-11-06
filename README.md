@@ -61,11 +61,15 @@ heroku open
 ✅ Docker\
 ✅ Webpack\
 ✅ Linter\
-❌ Tests\
+✅ Implement ORM/query builder\
 ✅ Heroku\
-✅ Refactor Comments\
+❌ Refactor Comments (Update & Delete)\
 ❌ User Login\
-✅ Implement ORM/query builder
+❌ Tests\
+❌ Responsiveness\
+❌ Stars\
+❌ Algo to recommend movies
+
 
 ## License
 

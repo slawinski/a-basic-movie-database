@@ -7,7 +7,7 @@ A super duper simple movie database interacting with external API.
 Make sure you have Docker and Compose installed and running locally ([click](https://www.docker.com)). Then run:
 
 ```bash
-docker-compose up --build
+docker-compose run --rm
 ```
 
 There's no database yet. To create postgresql database run:

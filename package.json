@@ -6,11 +6,12 @@
     "dev": "webpack --mode development ./src/index.js --output ./public/javascripts/main.js",
     "build": "webpack --mode production ./src/index.js --output ./public/javascripts/main.js",
     "watch": "webpack -w --mode development",
-    "start": "NODE_ENV=production nodemon ./bin/www",
-    "postinstall": "knex migrate:latest && npm install"
+    "start:dev": "NODE_ENV=development nodemon ./bin/www",
+    "start:prod": "NODE_ENV=production nodemon ./bin/www",
+    "postinstall": "knex migrate:latest && npm install",
+    "migrate": "knex migrate:latest"
   },
   "dependencies": {
-    "bluebird": "^3.5.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -20,9 +21,7 @@
     "knex": "^0.15.2",
     "method-override": "^3.0.0",
     "morgan": "~1.9.0",
-    "node-fetch": "^2.1.2",
-    "pg": "^7.5.0",
-    "pg-promise": "^8.4.5"
+    "node-fetch": "^2.1.2"
   },
   "devDependencies": {
     "eslint": "^5.7.0",

@@ -7,13 +7,13 @@ A super duper simple movie database interacting with external API.
 Make sure you have Docker and Compose installed and running locally ([click](https://www.docker.com)). Then run:
 
 ```bash
-docker-compose run --rm
+docker-compose run --rm --service-ports web bash
 ```
 
 There's no database yet. To create postgresql database run:
 
 ```bash
-docker exec -it $(docker-compose ps -q postgres9 ) psql -U postgres
+docker exec -it $(docker-compose ps -q db) psql -U postgres
 ```
 
 And then:
@@ -22,19 +22,19 @@ And then:
 create database movies_db;
 ```
 
-To have the database structure available locally run the migrations:
+To have the database structure available locally run the migrations in docker bash:
 
 ```bash
-knex migrate:latest
+npx knex migrate:latest
+```
+
+then
+
+```bash
+npm run start:dev
 ```
 
 And you're golden.
-
-For the bash shell run:
-
-```bash
-docker-compose run web /bin/bash
-```
 
 ## Running the tests
 
@@ -69,7 +69,6 @@ heroku open
 ❌ Responsiveness\
 ❌ Stars\
 ❌ Algo to recommend movies
-
 
 ## License
 

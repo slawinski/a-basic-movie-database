@@ -42,7 +42,7 @@ TBD
 
 ## Deployment
 
-To deploy the app on Heroku ryou need to run the below commands.
+To deploy the app on Heroku you need to run the below commands with docker container up and running.
 
 ```bash
 heroku login
@@ -50,8 +50,18 @@ heroku create
 heroku addons:create heroku-postgresql:hobby-dev
 heroku container:push web
 heroku container:release web
+```
+
+Migrations have to be initiated in heroku CLI
+
+```bash
 heroku run bash
 knex migrate:latest --env production
+```
+
+And one last thing
+
+```
 heroku open
 ```
 
@@ -63,11 +73,11 @@ heroku open
 ✅ Linter\
 ✅ Implement ORM/query builder\
 ✅ Heroku\
-✅ Refactor Comments (Update & Delete)\
+✅ Refactor Comments - Update & Delete\
+❌ Stars\
 ❌ User Login\
 ❌ Tests\
 ❌ Responsiveness\
-❌ Stars\
 ❌ Algo to recommend movies
 
 ## License
@@ -76,4 +86,4 @@ TBD
 
 ## Acknowledgments
 
-TBD
+This app would never come to existence if it wasn't for netguru and their demanding junior dev recruitment process which I failed miserably.

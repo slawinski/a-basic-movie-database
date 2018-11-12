@@ -21,7 +21,8 @@
     "knex": "^0.15.2",
     "method-override": "^3.0.0",
     "morgan": "~1.9.0",
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.1.2",
+    "pg": "^7.6.1"
   },
   "devDependencies": {
     "eslint": "^5.7.0",

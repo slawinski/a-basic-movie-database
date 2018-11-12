@@ -63,7 +63,7 @@ heroku open
 ✅ Linter\
 ✅ Implement ORM/query builder\
 ✅ Heroku\
-❌ Refactor Comments (Update & Delete)\
+✅ Refactor Comments (Update & Delete)\
 ❌ User Login\
 ❌ Tests\
 ❌ Responsiveness\

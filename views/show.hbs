@@ -56,8 +56,13 @@
         {{#if comments}} {{#each comments}}
         <div class="card mt-1">
           <div class="card-body">
-            <div class="flex-container">
+            <div class="flex-container just-content">
               <p>{{created_at}}</p>
+              <form action="/{{movie_id}}/comment/{{id}}?_method=DELETE" method="post">
+                <button type="submit" class="btn btn-default btn-danger">
+                  Delete
+                </button>
+              </form>
             </div>
             <p>{{comment}}</p>
           </div>

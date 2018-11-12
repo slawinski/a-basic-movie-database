@@ -97,6 +97,17 @@ router.delete("/:id", (req, res, next) => {
     });
 });
 
+router.delete("/:movie_id/comment/:id", (req, res, next) => {
+  const commentId = req.params.id;
+  const movieId = req.params.movie_id;
+  knex("comments")
+    .where("id", commentId)
+    .del()
+    .then(() => {
+      res.redirect(`/${movieId}`);
+    });
+});
+
 router.post("/:id", (req, res, next) => {
   const comments = {
     movie_id: req.params.id,

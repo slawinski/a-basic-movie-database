@@ -34,6 +34,21 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+router.get("/:movie_id/comment/:comment_id/edit", (req, res, next) => {
+  const commentId = req.params.comment_id;
+  knex("comments")
+    .select(
+      "id",
+      "movie_id",
+      "comment",
+      knex.raw(`to_char("created_at", 'YYYY-MM-DD HH:mm') as "created_at"`)
+    )
+    .where("id", commentId)
+    .then(comment => {
+      res.render("edit", { comment });
+    });
+});
+
 router.post("/", (req, res, next) => {
   const url = `http://www.omdbapi.com/?apikey=869369bc&t=${req.body.title}`;
   fetch(url, {
@@ -97,8 +112,8 @@ router.delete("/:id", (req, res, next) => {
     });
 });
 
-router.delete("/:movie_id/comment/:id", (req, res, next) => {
-  const commentId = req.params.id;
+router.delete("/:movie_id/comment/:comment_id", (req, res, next) => {
+  const commentId = req.params.comment_id;
   const movieId = req.params.movie_id;
   knex("comments")
     .where("id", commentId)
@@ -117,6 +132,15 @@ router.post("/:id", (req, res, next) => {
     .insert(comments)
     .then(() => {
       res.redirect(`/${req.params.id}`);
+    });
+});
+
+router.put("/:movie_id/comment/:comment_id", (req, res, next) => {
+  knex("comments")
+    .where("id", req.params.comment_id)
+    .update("comment", req.body.comment)
+    .then(() => {
+      res.redirect(`/${req.params.movie_id}`);
     });
 });
 

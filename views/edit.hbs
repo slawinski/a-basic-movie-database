@@ -1,0 +1,9 @@
+<div class="comment-section">
+  <div>
+    <form id="addComment" action="/{{comment.[0].movie_id}}/comment/{{comment.[0].id}}?_method=PUT" method="post">
+      <label for="comment">Edit comment: </label>
+      <input value="{{comment.[0].comment}}" id="comment" name="comment" type="text" placeholder="e.g. I liked it" required>
+      <button type="submit" form="addComment" class="left btn btn-outline-primary btn-default">Update</button>
+    </form>
+  </div>
+</div>

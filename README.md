@@ -45,7 +45,7 @@ TBD
 To deploy the app on Heroku you need to run the below commands with docker container up and running.
 
 ```bash
-heroku login
+heroku login || heroku container:login
 heroku create
 heroku addons:create heroku-postgresql:hobby-dev
 heroku container:push web

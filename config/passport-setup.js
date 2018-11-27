@@ -8,10 +8,12 @@ passport.use(
       // option for the strategy
       clientID: keys.clientID,
       clientSecret: keys.clientSecret,
-      callbackURL: "auth/google/redirect"
+      callbackURL: "http://localhost:3000/auth/google/redirect"
     },
-    () => {
+    (accessToken, refreshToken, profile, done) => {
       // passport callback function
+      console.log(">>>>>>>>>>>>>>>>>> passport callback function fired");
+      console.log(profile);
     }
   )
 );

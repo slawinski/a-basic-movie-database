@@ -77,8 +77,7 @@ heroku open
 ❌ Stars\
 ❌ User Login\
 ❌ Tests\
-❌ Responsiveness\
-❌ Algo to recommend movies
+❌ Responsiveness
 
 ## License
 

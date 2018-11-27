@@ -5,8 +5,10 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
+const passportSetup = require("./config/passport-setup");
 
 const indexRouter = require("./routes/index");
+const authRouter = require("./routes/auth-routes");
 
 const app = express();
 
@@ -28,6 +30,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
+app.use("/auth", authRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

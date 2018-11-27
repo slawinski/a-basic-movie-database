@@ -5,7 +5,6 @@ exports.up = (knex, Promise) =>
       .string("username")
       .unique()
       .notNullable();
-    table.string("password").notNullable();
     table
       .boolean("admin")
       .notNullable()
@@ -13,6 +12,4 @@ exports.up = (knex, Promise) =>
     table.timestamps(false, true);
   });
 
-exports.down = (knex, Promise) => {
-  knex.schema.dropTable("users");
-};
+exports.down = (knex, Promise) => knex.schema.dropTable("users");

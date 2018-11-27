@@ -5,5 +5,5 @@ exports.up = (knex, Promise) =>
 
 exports.down = (knex, Promise) =>
   knex.schema.table("comments", table => {
-    table.dropColumn("quantity");
+    table.dropColumn("user");
   });

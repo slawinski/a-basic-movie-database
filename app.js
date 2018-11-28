@@ -5,12 +5,18 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
+const passport = require("passport");
 const passportSetup = require("./config/passport-setup");
 
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth-routes");
+const keys = require("./config/keys");
 
 const app = express();
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 const hbs = exphbs.create({
@@ -25,7 +31,12 @@ app.set("view engine", "hbs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(
+  cookieParser({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+  })
+);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 

@@ -13,14 +13,21 @@ passport.use(
     },
     (accessToken, refreshToken, profile, done) => {
       // passport callback function
-      console.log(profile);
       const user = {
         username: profile.displayName
       };
       knex("users")
-        .insert(user)
-        .then(() => {
-          console.log(`created user ${user.username}`);
+        .where("username", user)
+        .then(currentUser => {
+          if (currentUser) {
+            console.log(`>>>>>>> User ${user.username} already exists`);
+          } else {
+            knex("users")
+              .insert(user)
+              .then(() => {
+                console.log(`created user ${user.username}`);
+              });
+          }
         });
     }
   )

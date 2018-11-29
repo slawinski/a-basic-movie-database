@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const passport = require("passport");
+const cors = require("cors");
 
 // auth login
 router.get("/login", (req, res) => {
@@ -22,10 +23,9 @@ router.get(
 );
 
 // callback route for google to redirect to
-router.get(
-  "/google/redirect",
-  passport.authenticate("google", { failureRedirect: "/login" }),
-  (req, res) => res.redirect("/")
-);
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+  res.send(`Please be something here :'( ${req.user}`);
+  console.log(req.user);
+});
 
 module.exports = router;

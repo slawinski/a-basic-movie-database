@@ -8,7 +8,6 @@ const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
-const cors = require("cors");
 
 const passportSetup = require("./config/passport-setup");
 const indexRouter = require("./routes/index");
@@ -17,38 +16,28 @@ const keys = require("./config/keys");
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header("Access-Control-Allow-Origin", req.headers.origin);
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
-//   );
-//   if (req.method === "OPTIONS") {
-//     res.send(200);
-//   } else {
-//     next();
-//   }
-// });
-
-app.use(cors());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Origin", req.headers.origin);
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+  );
+  if (req.method === "OPTIONS") {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 
 // initialize passport
-// app.use(
-//   cors({
-//     methods: ["GET", "POST"],
-//     credentials: true
-//   })
-// );
-// app.use(cookieParser("anything"));
 app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
   })
 );
-// app.use(cookieSession({ secret: "anything" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());

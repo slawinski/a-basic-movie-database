@@ -5,14 +5,14 @@ const knex = require("../db/knex");
 
 passport.serializeUser((user, done) => {
   done(null, user);
+  // done(null, user.id);
 });
 
 passport.deserializeUser((user, done) => {
   done(null, user);
 
   // knex("users")
-  //   .where({ id })
-  //   .first()
+  //   .where("id", id)
   //   .then(user => {
   //     done(null, user);
   //   })

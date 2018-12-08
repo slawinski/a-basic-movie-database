@@ -74,11 +74,10 @@ heroku open
 ✅ Implement ORM/query builder\
 ✅ Heroku\
 ✅ Refactor Comments - Update & Delete\
-❌ Stars\
-❌ User Login\
+✅ Authentication\
 ❌ Tests\
-❌ Responsiveness\
-❌ Algo to recommend movies
+❌ Responsiveness
+❌ Stars\
 
 ## License
 
@@ -86,4 +85,4 @@ TBD
 
 ## Acknowledgments
 
-This app would never come to existence if it wasn't for netguru and their demanding junior dev recruitment process which I failed miserably.
+This app would never come to existence if it wasn't for netguru and their demanding junior dev recruitment process which I've failed miserably.

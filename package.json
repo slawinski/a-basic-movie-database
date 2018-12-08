@@ -12,7 +12,9 @@
     "migrate": "knex migrate:latest"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
+    "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
@@ -22,6 +24,8 @@
     "method-override": "^3.0.0",
     "morgan": "~1.9.0",
     "node-fetch": "^2.1.2",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
     "pg": "^7.6.1"
   },
   "devDependencies": {

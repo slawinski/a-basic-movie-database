@@ -11,5 +11,5 @@ exports.up = (knex, Promise) =>
 
 exports.down = (knex, Promise) => {
   const dropQuery = `DROP TABLE comments`;
-  return knex.raw(dropQuery);
+  knex.raw(dropQuery);
 };

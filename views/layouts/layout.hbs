@@ -12,26 +12,31 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" integrity="sha384-u/bQvRA/1bobcXlcEYpsEdFVK/vJs3+T+nXLsBYJthmdBuavHvAW6UsmqO2Gd/F9"
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container">
-    <h1>A basic movie database</h1>
-    <h3 class="text-muted">Simple CRUD app interacting with external API</h3>
-    <ul>
-      <li>
-        <a href="/auth/logout">Logout</a>
-      </li>
-      <li>
-        <a href="/auth/login">Login</a>
-      </li>
-      <li>
-        <a href="/">Homepage</a>
-      </li>
-    </ul>
-    <hr>
+  <div class="container flex-container">
+    <div>
+      <h1>A basic movie database</h1>
+      <h3 class="text-muted">Simple CRUD app interacting with external API</h3>
+    </div>
+    <div>
+      <ul>
+        <li>
+          <a href="/auth/logout" class="btn btn-outline-primary">Logout</a>
+        </li>
+        <li>
+          <a href="/auth/login" class="btn btn-outline-primary">Login</a>
+        </li>
+        <li>
+          <a href="/" class="btn btn-outline-primary">Homepage</a>
+        </li>
+      </ul>
+    </div>
   </div>
-  {{{body}}}
+  <hr> {{{body}}}
 </body>
 
 </html>

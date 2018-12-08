@@ -5,6 +5,15 @@ const router = express.Router();
 
 const knex = require("../db/knex");
 
+const authCheck = (req, res, next) => {
+  if (!req.user) {
+    // if user in not logged in
+    res.redirect("/auth/login");
+  } else {
+    next();
+  }
+};
+
 router.get("/", (req, res, next) => {
   knex("movies")
     .select()
@@ -49,7 +58,7 @@ router.get("/:movie_id/comment/:comment_id/edit", (req, res, next) => {
     });
 });
 
-router.post("/", (req, res, next) => {
+router.post("/", authCheck, (req, res, next) => {
   const url = `http://www.omdbapi.com/?apikey=869369bc&t=${req.body.title}`;
   fetch(url, {
     method: "GET"
@@ -97,7 +106,7 @@ router.post("/", (req, res, next) => {
     .catch(err => next(err));
 });
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", authCheck, (req, res, next) => {
   const { id } = req.params;
   knex("comments")
     .where("movie_id", id)
@@ -112,7 +121,7 @@ router.delete("/:id", (req, res, next) => {
     });
 });
 
-router.delete("/:movie_id/comment/:comment_id", (req, res, next) => {
+router.delete("/:movie_id/comment/:comment_id", authCheck, (req, res, next) => {
   const commentId = req.params.comment_id;
   const movieId = req.params.movie_id;
   knex("comments")
@@ -123,7 +132,7 @@ router.delete("/:movie_id/comment/:comment_id", (req, res, next) => {
     });
 });
 
-router.post("/:id", (req, res, next) => {
+router.post("/:id", authCheck, (req, res, next) => {
   const comments = {
     movie_id: req.params.id,
     comment: req.body.comment
@@ -135,7 +144,7 @@ router.post("/:id", (req, res, next) => {
     });
 });
 
-router.put("/:movie_id/comment/:comment_id", (req, res, next) => {
+router.put("/:movie_id/comment/:comment_id", authCheck, (req, res, next) => {
   knex("comments")
     .where("id", req.params.comment_id)
     .update("comment", req.body.comment)

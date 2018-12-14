@@ -27,7 +27,8 @@ passport.use(
       // option for the strategy
       clientID: keys.google.clientID,
       clientSecret: keys.google.clientSecret,
-      callbackURL: "/auth/google/redirect"
+      callbackURL: "/auth/google/redirect",
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       // passport callback function

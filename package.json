@@ -8,7 +8,7 @@
     "watch": "webpack -w --mode development",
     "start:dev": "NODE_ENV=development nodemon ./bin/www",
     "start:prod": "NODE_ENV=production nodemon ./bin/www",
-    "postinstall": "knex migrate:latest && npm install",
+    "heroku-postbuild": "knex migrate:latest && npm install",
     "migrate": "knex migrate:latest"
   },
   "dependencies": {

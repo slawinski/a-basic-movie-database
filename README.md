@@ -42,10 +42,10 @@ TBD
 
 ## Deployment
 
-To deploy the app on Heroku you need to run the below commands with docker container up and running.
+To deploy the app on Heroku you need to run the below commands. Make sure you have a working Docker installation (eg. docker ps) and that you’re logged in to Heroku (heroku login).
 
 ```bash
-heroku login || heroku container:login
+heroku container:login
 heroku create
 heroku addons:create heroku-postgresql:hobby-dev
 heroku container:push web
@@ -56,7 +56,7 @@ Migrations have to be initiated in heroku CLI
 
 ```bash
 heroku run bash
-knex migrate:latest --env production
+npx knex migrate:latest --env production
 ```
 
 And one last thing
@@ -76,7 +76,7 @@ heroku open
 ✅ Refactor Comments - Update & Delete\
 ✅ Authentication\
 ❌ Tests\
-❌ Responsiveness
+❌ Responsiveness\
 ❌ Stars\
 
 ## License

@@ -1,6 +1,6 @@
 # a-basic-movie-database
 
-[![Build Status](https://travis-ci.com/slawinski/a-basic-movie-database.svg?branch=master)](https://travis-ci.com/slawinski/a-basic-movie-database)
+[![Build Status](https://travis-ci.com/slawinski/a-basic-movie-database.svg?branch=feature%2Ftests)](https://travis-ci.com/slawinski/a-basic-movie-database)
 
 A super duper simple movie database interacting with external API.
 

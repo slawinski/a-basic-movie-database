@@ -1,6 +1,6 @@
+require("dotenv").config();
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const keys = require("./keys");
 const knex = require("../db/knex");
 
 passport.serializeUser((user, done) => {
@@ -25,8 +25,8 @@ passport.use(
   new GoogleStrategy(
     {
       // option for the strategy
-      clientID: keys.google.clientID,
-      clientSecret: keys.google.clientSecret,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "/auth/google/redirect",
       proxy: true
     },

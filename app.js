@@ -1,3 +1,4 @@
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
@@ -12,7 +13,6 @@ const passport = require("passport");
 const passportSetup = require("./config/passport-setup");
 const indexRouter = require("./routes/index");
 const authRouter = require("./routes/auth-routes");
-const keys = require("./config/keys");
 
 const app = express();
 
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use(
   cookieSession({
     maxAge: 24 * 60 * 60 * 1000,
-    keys: [keys.session.cookieKey]
+    keys: [process.env.COOKIE_KEY]
   })
 );
 app.use(bodyParser.urlencoded({ extended: false }));

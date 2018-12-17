@@ -15,20 +15,20 @@ describe("Route GET /:id", () => {
       .expect(200, done);
   });
 });
-// describe.("Route POST /", () => {
-//   const data = {
-//     id: "1",
-//     title: "dummy"
-//   };
-//   it("should respond with 201 (created)", done => {
-//     request(app)
-//       .post("/")
-//       .send(data)
-//       .set("Accept", "application/json")
-//       .expect(201)
-//       .end(err => {
-//         if (err) return done(err);
-//         done();
-//       });
-//   });
-// });
+describe.skip("Route POST /", () => {
+  const data = {
+    id: "1",
+    title: "dummy"
+  };
+  it("should respond with 201 (created)", done => {
+    request(app)
+      .post("/")
+      .send(data)
+      .set("Accept", "application/json")
+      .expect(201)
+      .end(err => {
+        if (err) return done(err);
+        done();
+      });
+  });
+});

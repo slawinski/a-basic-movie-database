@@ -77,7 +77,7 @@ heroku open
 ✅ Heroku\
 ✅ Refactor Comments - Update & Delete\
 ✅ Authentication\
-❌ Tests\
+✅ Tests\
 ❌ Responsiveness\
 ❌ Stars\
 

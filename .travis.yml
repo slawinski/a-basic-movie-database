@@ -4,7 +4,5 @@ node_js:
   - "10"
 services:
   - docker
-before_script:
-  - docker-compose up --build -d
 script:
-  - docker run --rm
+  - docker-compose up --build -d

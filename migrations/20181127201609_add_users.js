@@ -1,5 +1,5 @@
-exports.up = (knex, Promise) =>
-  knex.schema.createTable("users", table => {
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("users", function(table) { // eslint-disable-line
     table.increments("id");
     table
       .string("username")
@@ -11,5 +11,8 @@ exports.up = (knex, Promise) =>
       .defaultTo(false);
     table.timestamps(false, true);
   });
+};
 
-exports.down = (knex, Promise) => knex.schema.dropTable("users");
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("users");
+};

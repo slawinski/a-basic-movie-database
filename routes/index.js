@@ -19,8 +19,8 @@ router.get("/", (req, res, next) => {
     .select()
     .orderBy("created_at", "desc")
     .then(movies => {
-      res.status(200).json(movies);
-      // res.render("movies", { movies });
+      res.render("movies", { movies });
+      console.log(movies);
     });
 });
 

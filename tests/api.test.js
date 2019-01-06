@@ -1,6 +1,5 @@
 process.env.NODE_ENV = "test";
 
-const request = require("supertest");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 
@@ -33,25 +32,38 @@ describe("API Routes", () => {
         .request(server)
         .get("/")
         .end((err, res) => {
+          should.equal(err, null);
           res.should.have.status(200);
-          res.body.should.be.a("array");
-          res.body[0].should.have.property("Title");
-          res.body[0].Title.should.equal("The Avengers");
+          res.should.be.html; // eslint-disable-line
+          res.body.should.be.a("object");
+          res.body.should.have.property("Title");
+          res.body.Title.should.equal("The Avengers");
           done();
         });
     });
   });
-  describe.skip("GET /:id", () => {
-    it("should return a single show", done => {
+  describe("GET /1", () => {
+    it("should return a single movie", done => {
       chai
         .request(server)
         .get("/1")
         .end((err, res) => {
           res.should.have.status(200);
-          res.should.be.json; // eslint-disable-line
+          res.should.be.html; // eslint-disable-line
           res.body.should.be.a("object");
           res.body.should.have.property("Title");
           res.body.name.should.equal("The Avengers");
+          done();
+        });
+    });
+  });
+  describe("GET /5", () => {
+    it("should not return a single movie", done => {
+      chai
+        .request(server)
+        .get("/5")
+        .end((err, res) => {
+          res.should.have.status(404);
           done();
         });
     });

@@ -10,6 +10,5 @@ exports.up = (knex, Promise) =>
   });
 
 exports.down = (knex, Promise) => {
-  const dropQuery = `DROP TABLE comments`;
-  knex.raw(dropQuery);
+  knex.schema.dropTable("comments");
 };

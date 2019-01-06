@@ -1,7 +1,23 @@
 module.exports = {
   development: {
     client: "postgres",
-    connection: "postgres://postgres:password@db:5432/movies_db"
+    connection: "postgres://postgres:password@db:5432/movies_db",
+    migrations: {
+      directory: "./migrations"
+    },
+    seeds: {
+      directory: "./seeds/development"
+    }
+  },
+  test: {
+    client: "postgres",
+    connection: "postgres://postgres:password@db:5432/movies_db_test",
+    migrations: {
+      directory: "./migrations"
+    },
+    seeds: {
+      directory: "./seeds/test"
+    }
   },
   production: {
     client: "postgres",

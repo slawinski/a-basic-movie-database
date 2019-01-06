@@ -40,7 +40,19 @@ And you're golden.
 
 ## Running the tests
 
-TBD
+In docker bash run
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+npm run test:watch
+```
+
+for continuous testing.
 
 ## Deployment
 

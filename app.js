@@ -52,7 +52,9 @@ const hbs = exphbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 
-app.use(logger("dev"));
+if (process.env.NODE_ENV !== "test") {
+  app.use(logger("dev"));
+}
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));

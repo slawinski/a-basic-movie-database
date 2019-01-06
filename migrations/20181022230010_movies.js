@@ -29,6 +29,5 @@ exports.up = (knex, Promise) =>
     table.timestamps(false, true);
   });
 exports.down = (knex, Promise) => {
-  const dropQuery = `DROP TABLE movies`;
-  return knex.raw(dropQuery);
+  knex.schema.dropTable("movies");
 };

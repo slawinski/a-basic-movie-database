@@ -1,34 +1,47 @@
-const request = require("supertest");
-const app = require("../app");
+process.env.NODE_ENV = "test";
 
-describe("Route GET /", () => {
-  it("should return OK when hitting /", done => {
-    request(app)
-      .get("/")
-      .expect(200, done);
+const request = require("supertest");
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+
+const should = chai.should();
+const server = require("../app");
+const knex = require("../db/knex");
+
+chai.use(chaiHttp);
+
+describe("API Routes", () => {
+  beforeEach(done => {
+    knex.migrate.rollback().then(() => {
+      knex.migrate.latest().then(() =>
+        knex.seed.run().then(() => {
+          done();
+        })
+      );
+    });
   });
-});
-describe("Route GET /:id", () => {
-  it("should respond with 200 when hitting existing movie", done => {
-    request(app)
-      .get("/22")
-      .expect(200, done);
+
+  afterEach(done => {
+    knex.migrate.rollback().then(() => {
+      done();
+    });
   });
-});
-describe.skip("Route POST /", () => {
-  const data = {
-    id: "1",
-    title: "dummy"
-  };
-  it("should respond with 201 (created)", done => {
-    request(app)
-      .post("/")
-      .send(data)
-      .set("Accept", "application/json")
-      .expect(201)
-      .end(err => {
-        if (err) return done(err);
-        done();
-      });
+
+  describe("Get all movies", () => {
+    it("should get all movies", done => {
+      chai
+        .request(server)
+        .get("/")
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json; // eslint-disable-line
+          res.body.should.be.a("array");
+          res.body.length.should.equal(4);
+          res.body[0].should.have.property("Title");
+          res.body[0].name.should.equal("The Avengers");
+          res.body[0].explicit.should.equal(false);
+          done();
+        });
+    });
   });
 });

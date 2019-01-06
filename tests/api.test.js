@@ -34,12 +34,24 @@ describe("API Routes", () => {
         .get("/")
         .end((err, res) => {
           res.should.have.status(200);
-          res.should.be.json; // eslint-disable-line
           res.body.should.be.a("array");
-          res.body.length.should.equal(4);
           res.body[0].should.have.property("Title");
-          res.body[0].name.should.equal("The Avengers");
-          res.body[0].explicit.should.equal(false);
+          res.body[0].Title.should.equal("The Avengers");
+          done();
+        });
+    });
+  });
+  describe.skip("GET /:id", () => {
+    it("should return a single show", done => {
+      chai
+        .request(server)
+        .get("/1")
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.json; // eslint-disable-line
+          res.body.should.be.a("object");
+          res.body.should.have.property("Title");
+          res.body.name.should.equal("The Avengers");
           done();
         });
     });

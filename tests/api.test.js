@@ -10,15 +10,11 @@ const knex = require("../db/knex");
 chai.use(chaiHttp);
 
 describe("API Routes", () => {
-  beforeEach(done => {
-    knex.migrate.rollback().then(() => {
-      knex.migrate.latest().then(() =>
-        knex.seed.run().then(() => {
-          done();
-        })
-      );
-    });
-  });
+  beforeEach(() =>
+    knex.migrate
+      .rollback()
+      .then(() => knex.migrate.latest())
+      .then(() => knex.seed.run()));
 
   afterEach(done => {
     knex.migrate.rollback().then(() => {
@@ -36,13 +32,12 @@ describe("API Routes", () => {
           res.should.have.status(200);
           res.should.be.html; // eslint-disable-line
           res.body.should.be.a("object");
-          res.body.should.have.property("Title");
-          res.body.Title.should.equal("The Avengers");
           done();
         });
     });
   });
-  describe("GET /1", () => {
+
+  describe("Get single movie", () => {
     it("should return a single movie", done => {
       chai
         .request(server)
@@ -51,19 +46,6 @@ describe("API Routes", () => {
           res.should.have.status(200);
           res.should.be.html; // eslint-disable-line
           res.body.should.be.a("object");
-          res.body.should.have.property("Title");
-          res.body.name.should.equal("The Avengers");
-          done();
-        });
-    });
-  });
-  describe("GET /5", () => {
-    it("should not return a single movie", done => {
-      chai
-        .request(server)
-        .get("/5")
-        .end((err, res) => {
-          res.should.have.status(404);
           done();
         });
     });

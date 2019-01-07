@@ -20,7 +20,6 @@ router.get("/", (req, res, next) => {
     .orderBy("created_at", "desc")
     .then(movies => {
       res.render("movies", { movies });
-      console.log(movies);
     });
 });
 

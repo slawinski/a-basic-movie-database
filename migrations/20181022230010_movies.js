@@ -1,34 +1,34 @@
-exports.up = (knex, Promise) =>
-  knex.schema.createTable("movies", table => {
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable("movies", function(table) { // eslint-disable-line
     table.increments("id");
-    table.text("title").notNullable();
-    table.text("year");
-    table.text("rated");
-    table.text("released");
-    table.text("runtime");
-    table.text("genre");
-    table.text("director");
-    table.text("writer");
-    table.text("actors");
-    table.text("plot");
-    table.text("language");
-    table.text("country");
-    table.text("awards");
-    table.text("poster");
-    table.json("ratings");
-    table.text("metascore");
+    table.text("Title").notNullable();
+    table.text("Year");
+    table.text("Rated");
+    table.text("Released");
+    table.text("Runtime");
+    table.text("Genre");
+    table.text("Director");
+    table.text("Writer");
+    table.text("Actors");
+    table.text("Plot");
+    table.text("Language");
+    table.text("Country");
+    table.text("Awards");
+    table.text("Poster");
+    table.json("Ratings");
+    table.text("Metascore");
     table.text("imdbRating");
     table.text("imdbVotes");
     table.text("imdbID");
-    table.text("type");
+    table.text("Type");
     table.text("DVD");
-    table.text("boxOffice");
-    table.text("production");
-    table.text("website");
-    table.boolean("response");
+    table.text("BoxOffice");
+    table.text("Production");
+    table.text("Website");
+    table.boolean("Response");
     table.timestamps(false, true);
   });
-exports.down = (knex, Promise) => {
-  const dropQuery = `DROP TABLE movies`;
-  return knex.raw(dropQuery);
+};
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTable("movies");
 };

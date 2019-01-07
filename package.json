@@ -9,18 +9,21 @@
     "start:dev": "NODE_ENV=development nodemon ./bin/www",
     "start:prod": "NODE_ENV=production nodemon ./bin/www",
     "heroku-postbuild": "knex migrate:latest && npm install",
-    "migrate": "knex migrate:latest"
+    "migrate": "knex migrate:latest",
+    "test": "mocha tests/*.test.js",
+    "test:watch": "mocha tests/*.test.js --watch"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
-    "knex": "^0.15.2",
+    "knex": "^0.16.3",
     "method-override": "^3.0.0",
     "morgan": "~1.9.0",
     "node-fetch": "^2.1.2",
@@ -29,11 +32,14 @@
     "pg": "^7.6.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.17.5",
     "prettier": "^1.14.3"
   }

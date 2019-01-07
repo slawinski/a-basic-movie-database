@@ -1,5 +1,7 @@
 # a-basic-movie-database
 
+[![Build Status](https://travis-ci.com/slawinski/a-basic-movie-database.svg?branch=feature%2Ftests)](https://travis-ci.com/slawinski/a-basic-movie-database)
+
 A super duper simple movie database interacting with external API.
 
 ## Getting started
@@ -38,7 +40,19 @@ And you're golden.
 
 ## Running the tests
 
-TBD
+In docker bash run
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+npm run test:watch
+```
+
+for continuous testing.
 
 ## Deployment
 
@@ -75,7 +89,7 @@ heroku open
 ✅ Heroku\
 ✅ Refactor Comments - Update & Delete\
 ✅ Authentication\
-❌ Tests\
+✅ Tests\
 ❌ Responsiveness\
 ❌ Stars\
 

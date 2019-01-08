@@ -3,20 +3,20 @@ module.exports = {
     client: "postgres",
     connection: "postgres://postgres:password@db:5432/movies_db",
     migrations: {
-      directory: "./migrations"
+      directory: "./db/migrations"
     },
     seeds: {
-      directory: "./seeds/development"
+      directory: "./db/seeds/development"
     }
   },
   test: {
     client: "postgres",
     connection: "postgres://postgres:password@db:5432/movies_db_test",
     migrations: {
-      directory: "./migrations"
+      directory: "./db/migrations"
     },
     seeds: {
-      directory: "./seeds/test"
+      directory: "./db/seeds/test"
     }
   },
   production: {
@@ -27,7 +27,7 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: "./migrations"
+      directory: "./db/migrations"
     },
     ssl: true
   }

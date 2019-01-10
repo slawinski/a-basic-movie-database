@@ -85,13 +85,11 @@ heroku open
 ✅ Docker\
 ✅ Webpack\
 ✅ Linter\
-✅ Implement ORM/query builder\
 ✅ Heroku\
-✅ Refactor Comments - Update & Delete\
 ✅ Authentication\
 ✅ Tests\
 ❌ Responsiveness\
-❌ Stars\
+❌ PWA
 
 ## License
 
